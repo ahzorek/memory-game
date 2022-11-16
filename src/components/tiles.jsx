@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import gotRight from '../utils/gotRight.js'
+import gotWrong from '../utils/gotWrong.js'
+
 
 const Tiles = ({items}) => {
   const [game, setGame] = useState({
@@ -24,25 +27,7 @@ const Tiles = ({items}) => {
       address: firstValue
     })
   }
-
-  function gotRight(firstValue, secondValue) {
-    alert("You got that RIGHT!")
-
-    firstValue.className = 'cards correct_card'
-    secondValue.className = 'cards correct_card'
-    firstValue.disabled = true
-    secondValue.disabled = true
-  }
-
-  function gotWrong(firstValue, secondValue) {
-    alert("You got that WRONG!")
-
-    firstValue.className = 'hidden cards'
-    secondValue.className = 'hidden cards'
-    firstValue.disabled = false
-    secondValue.disabled = false
-  }
-
+  
   function handleGameLogic(e) {
     if (game.state === "idle") {
       selectFirst(e.target)
