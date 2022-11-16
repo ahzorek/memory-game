@@ -5,7 +5,7 @@
 }
 .group {
   position: relative;
-  margin: 0 auto;
+  margin: 1rem auto;
   padding: 1rem;
 }
 
@@ -52,7 +52,7 @@
 .cards {
   position: relative;
   padding: 0;
-  border: 1px solid gray;
+  border: 1px solid #464646;
   border-radius: 3px;
   color: rgb(200 200 200 / 0%);
   transition: color 100ms ease-in-out;

@@ -6,8 +6,6 @@
     { title: "Lion" },
     { title: "Alpaca" },
     { title: "Zebra" },
-    { title: "Cow" },
-
+    { title: "Cow" }
   ]
-
   export default seed

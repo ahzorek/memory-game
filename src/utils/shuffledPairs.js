@@ -1,5 +1,5 @@
 export default function shuffledPairs(items) {
-    let dupeIt = [...items, ...items]
-    let shuffled = dupeIt.sort(() => Math.random() - 0.5)
+    const dupeIt = [...items, ...items]
+    const shuffled = dupeIt.sort(() => Math.random() - 0.4)
     return shuffled
   }
