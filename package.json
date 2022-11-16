@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "minor": "npm version minor",
     "major": "npm version major",
-    "stage": "npm version patch && git add ."
+    "stage": "npm version patch --no-git-tag-version && git add . && git status"
   },
   "dependencies": {
     "@mojs/core": "^1.3.0",

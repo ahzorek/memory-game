@@ -1,89 +1,81 @@
-import React, {useState} from 'react';
-import '../App.css'
+import React, { useState } from 'react'
 
 const Tiles = ({items}) => {
   const [game, setGame] = useState({
     state: "idle",
-    value1: null,
+    comparingValue: null,
     address: null
   })
 
   function clearGame() {
     setGame({
       state: "idle",
-      value1: null,
+      comparingValue: null,
       address: null
     })
   }
 
-  function firstPass(v1) {
-    console.log("RUNNING ON THE FIRST PASS: ", v1)
-      v1.className = 'cards selected_card'
-      v1.disabled = true
-      setGame({
-        state: "ongoing",
-        value1: v1.value,
-        address: v1
-      })
+  function selectFirst(firstValue) {
+    firstValue.className = 'cards selected_card'
+    firstValue.disabled = true
+    setGame({
+      state: "ongoing",
+      comparingValue: firstValue.value,
+      address: firstValue
+    })
   }
 
-  function gotRight(v1, v2) {
+  function gotRight(firstValue, secondValue) {
     alert("You got that RIGHT!")
-    v1.className = 'cards correct_card'
-    v2.className = 'cards correct_card'
-    v1.disabled = true
-    v2.disabled = true
+
+    firstValue.className = 'cards correct_card'
+    secondValue.className = 'cards correct_card'
+    firstValue.disabled = true
+    secondValue.disabled = true
   }
 
-  function gotWrong(v1, v2) {
+  function gotWrong(firstValue, secondValue) {
     alert("You got that WRONG!")
-    v1.className = 'hideagain cards'
-    v2.className = 'hideagain cards'
-    v1.disabled = false
-    v2.disabled = false
-  }
 
+    firstValue.className = 'hidden cards'
+    secondValue.className = 'hidden cards'
+    firstValue.disabled = false
+    secondValue.disabled = false
+  }
 
   function handleGameLogic(e) {
     if (game.state === "idle") {
-      firstPass(e.target)
-    }
-    else if (game.state === "ongoing") {
+      selectFirst(e.target)
+      return
+    } else if (game.state === "ongoing") {
       e.target.className = 'cards selected_card'
       setTimeout(() => {
-        if(e.target.value === game.value1) {
+        if(e.target.value === game.comparingValue) {
           gotRight(e.target, game.address)
-          clearGame()
-        }
-        else {
-          console.log(e.target, game.address)
+        }else {
           gotWrong(e.target, game.address)
-          clearGame()
         }
-      }, 200);
-
+      }, 200)
+      clearGame()
     }
   }
 
   return (
     <div className='tiles'>
-        {
-          items.map(({title}, index) => {
+        {items.map(({title}, index) => {
             return (
               <button
                 onClick={(e) => handleGameLogic(e)}
                 value={title.toLowerCase()}
-                key={`__${title}__${index}`}
+                key={`__${title.toLowerCase()}__${index}`}
                 className='start cards'
               >
-                {/* <h3>{title}</h3> */}
                 <img src={`/${title.toLowerCase()}.jpg`} />
               </button>  
             )
-          })
-        }
+          })}
       </div>
   )
 }
 
-export default Tiles;
+export default Tiles
