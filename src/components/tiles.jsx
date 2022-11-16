@@ -14,9 +14,6 @@ const Tiles = ({items}) => {
 const positive = new Audio("./positive.wav")
 const negative = new Audio("./negative.wav")
 
-  const positive = new Audio("./positive.wav")
-
-
   function clearGame() {
     setGame({
       state: "idle",
