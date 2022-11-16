@@ -1,8 +1,7 @@
-export default function gotWrong(firstValue, secondValue) {
-  //alert("You got that TERRIBLY WRONG!")
-  
-  const audio = new Audio("./negative.wav")
+export default function gotWrong(firstValue, secondValue, audio) {
   audio.play()
+  
+  //alert("You got that TERRIBLY WRONG!")
 
   firstValue.className = 'hidden cards'
   secondValue.className = 'hidden cards'

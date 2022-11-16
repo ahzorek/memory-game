@@ -1,5 +1,4 @@
-export default function gotRight(firstValue, secondValue) {
-  const audio = new Audio("./positive.wav")
+export default function gotRight(firstValue, secondValue, audio) {
   audio.play()
 
   //alert("You got that DAMN RIGHT!")
