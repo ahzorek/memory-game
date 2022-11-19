@@ -5,6 +5,8 @@ import shuffledPairs from './utils/shuffledPairs'
 import './App.css'
 import { Score } from './components/score'
 
+//import SupaButton from './components/supabase_check'
+
 function App() {
   const gameItems = shuffledPairs(seed)
   
@@ -15,6 +17,7 @@ function App() {
       <div className="group">
         {!gameItems ? "Loading..." : <Tiles items={gameItems}/>}
       </div>
+      {/* <SupaButton/> */}
     </div>
   )
 }

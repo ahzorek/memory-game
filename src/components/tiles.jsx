@@ -2,14 +2,13 @@ import React, { useState } from 'react'
 import gotRight from '../utils/gotRight.js'
 import gotWrong from '../utils/gotWrong.js'
 import { useAtom } from 'jotai'
-import { turns, completed, pointsAtt, pointsAgg } from './score_store.js'
+import { turns, completed, pointsAtt, pointsAgg } from '../utils/score_store.js'
 
 const Tiles = ({items}) => {
   const [t, setTurns] = useAtom(turns)
   const [c, setCompleted] = useAtom(completed)
   const [p, setPoints] = useAtom(pointsAtt)
   const [pX, setPointsAgg] = useAtom(pointsAgg)
-
 
   const [game, setGame] = useState({
     state: "idle",

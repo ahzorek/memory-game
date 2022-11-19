@@ -1,2 +1,12 @@
 /dist
 /node_modules
+/package-lock.json
+
+.env
+# Local Netlify folder
+.netlify
+
+/memory-game-backend/node_modules
+/memory-game-backend/.env
+/memory-game-backend/.netlify
+

@@ -1,0 +1,14 @@
+[functions]
+  node_bundler = "esbuild"
+
+[[headers]]
+# Define which paths this specific [[headers]] block will cover.
+for = "/*"
+  [headers.values]
+  Access-Control-Allow-Origin = "*"
+  Access-Control-Allow-Methods= "GET, POST"
+
+[build]
+  command = "# no build command"
+  functions = "netlify/functions"
+  publish = "public"
