@@ -1,6 +1,7 @@
 import { useAtom } from 'jotai'
 import { scoreState } from '../utils/score_store'
 import { useState } from 'react'
+import refresh from '../utils/refresh'
 
 export function DisplayScoreBoard ({scoreBoardData}) {
     const [score] = useAtom(scoreState)
@@ -30,7 +31,7 @@ export function DisplayScoreBoard ({scoreBoardData}) {
     async function handleSubmit(){
       setPostCompleted(true)
       const url = "https://main--beamish-palmier-c6a0bb.netlify.app/.netlify/functions/post_score"
-      const dev__url = "http://localhost:8888/.netlify/functions/post_score"
+      //const dev__url = "http://localhost:8888/.netlify/functions/post_score"
       const settings = {
         method: 'POST',
         body: JSON.stringify(newScore)
@@ -42,15 +43,10 @@ export function DisplayScoreBoard ({scoreBoardData}) {
     } catch (e) {
         console.error("ERRO AQUI:: " + e)
         setPostCompleted(false)
-
     } 
   }
 
-  function refresh(){
-    window.location.reload();
-  }
-
-    return (
+  return (
         <>
           <table>
             <thead>

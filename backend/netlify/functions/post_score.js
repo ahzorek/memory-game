@@ -13,17 +13,12 @@ import { createClient } from '@supabase/supabase-js'
 
 exports.handler = async (event, context) => {
   try {
-    const ip_address = event.headers['client-ip']
     const body = JSON.parse(event.body)
-
     const newScore = {
       name: body.name,
       score: body.score,
-      ip_address,
       turns_taken: body.turns_taken
     }
-    console.log("POSTING: " + newScore)
-
     const { error } = await supabase
       .from('memory-game-scoreboard')
       .insert(newScore)
