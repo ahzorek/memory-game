@@ -11,6 +11,9 @@ exports.handler = async (event, context) => {
       .from('memory-game-scoreboard')
       .select()
       .order('score', { ascending: false })
+
+      if(error){ return { statusCode: 500, body: JSON.stringify({ error: 'Failed fetching data' })} }
+
       return { statusCode: 200, body: JSON.stringify({ data }) }
   } catch (err) {
     console.error(err)

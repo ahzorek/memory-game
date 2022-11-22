@@ -1,20 +1,17 @@
-import Tiles from './components/tiles'
-import seed from './utils/itemsSeed'
-import shuffledPairs from './utils/shuffledPairs'
-
-import ScoreScreen from './components/scoreScreen'
-
 import { useAtom } from 'jotai'
 import { useState } from 'react'
 
-import './App.css'
+import Tiles from './components/tiles'
+import seed from './utils/itemsSeed'
+import shuffledPairs from './utils/shuffledPairs'
+import ScoreScreen from './components/scoreScreen'
 import { Score } from './components/score'
 import { isFinished } from './utils/finished_store'
 
-//import SupaButton from './components/supabase_check'
+import './App.css'
 
 function App() {
-  const [finished, setAsFinished] = useAtom(isFinished)
+  const [finished, setFinished] = useAtom(isFinished)
 
   const gameItems = shuffledPairs(seed)
   
@@ -25,13 +22,8 @@ function App() {
       <div className="group">
         {!gameItems ? "Loading..." : <Tiles items={gameItems} />}
       </div>
-      {/* <button onClick={() => setFinished(true)} >test me</button> */}
-      {finished 
-        ?   <div className="overlay"><ScoreScreen/></div> 
-        :   null
-      }
-      
-      {/* <SupaButton/> */}
+      <button onClick={() => setFinished(true)} >test me</button>
+      { finished ?   <div className="overlay"><ScoreScreen/></div> :   null }
     </div>
   )
 }

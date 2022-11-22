@@ -13,7 +13,8 @@ exports.handler = async (event, context) => {
     const newScore = {
       name: body.name,
       score: body.score,
-      ip_address
+      ip_address,
+      turns_taken: body.turns_taken
     }
     console.log("POSTING: " + newScore)
 
@@ -21,7 +22,7 @@ exports.handler = async (event, context) => {
       .from('memory-game-scoreboard')
       .insert(newScore)
     
-      return { statusCode: 200, body: JSON.stringify({ newScore }) }   
+      return { statusCode: 200 }   
   } catch (err) {
     console.error(err)
     return {

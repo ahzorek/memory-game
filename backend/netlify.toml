@@ -6,7 +6,9 @@
 for = "/*"
   [headers.values]
   Access-Control-Allow-Origin = "*"
-  Access-Control-Allow-Methods= "GET, POST"
+  Access-Control-Allow-Headers = "Content-Type, Authorization, X-Requested-With"
+  Access-Control-Allow-Methods= "GET, POST, PUT, DELETE"
+
 
 [build]
   command = "# no build command"

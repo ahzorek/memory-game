@@ -12,11 +12,11 @@ export function Score() {
         </div>
         <div>
           <h2>Valendo</h2>
-          <div>{score.pointsGiven} pontos</div>
+          <div>{score.pointsGiven}</div>
         </div>
         <div>
           <h2>Corretas</h2>
-          <div>{score.correct}/8</div>
+          <div>{score.correct} / 8</div>
         </div>
         <div>
           <h2>Pontos</h2>

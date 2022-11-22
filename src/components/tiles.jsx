@@ -32,6 +32,9 @@ const Tiles = ({items}) => {
         isStart: false
       }))
     }, 4800)
+    return () => {
+    //cleanup
+    }
   }, [])
   
   //FLIP CARD (toggle action)
