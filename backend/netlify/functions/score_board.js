@@ -9,7 +9,8 @@ exports.handler = async (event, context) => {
   try {
     const { data, error } = await supabase
       .from('memory-game-scoreboard')
-      .select()    
+      .select()
+      .order('score', { ascending: false })
       return { statusCode: 200, body: JSON.stringify({ data }) }
   } catch (err) {
     console.error(err)

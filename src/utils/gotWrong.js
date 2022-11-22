@@ -4,8 +4,8 @@ export default function gotWrong(firstValue, secondValue, audio) {
 
   //alert("You got that TERRIBLY WRONG!")
 
-  firstValue.className = 'hidden cards'
-  secondValue.className = 'hidden cards'
+  //firstValue.className = 'hidden cards'
+  //secondValue.className = 'hidden cards'
   firstValue.disabled = false
   secondValue.disabled = false
 }

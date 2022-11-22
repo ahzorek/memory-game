@@ -6,12 +6,14 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+  --bg_color_opacity: rgba(14 14 14 / 80%);
   --cover: #131313;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --border-px: 5px;
 }
 
 a {
@@ -33,6 +35,7 @@ body {
 
 h1 {
   font-size: 2.2em;
+  line-height: 150%;
 }
 
 button {
@@ -47,6 +50,7 @@ button {
   :root {
     color: #213547;
     background-color: #ffffff;
+    --bg_color_opacity: rgb(240 240 240 / 80%)
     --cover: #f6f6f6;
   }
   a:hover {
