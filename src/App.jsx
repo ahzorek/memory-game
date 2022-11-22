@@ -22,7 +22,7 @@ function App() {
       <div className="group">
         {!gameItems ? "Loading..." : <Tiles items={gameItems} />}
       </div>
-      <button onClick={() => setFinished(true)} >test me</button>
+      {/* <button onClick={() => setFinished(true)} >test me</button> */}
       { finished ?   <div className="overlay"><ScoreScreen/></div> :   null }
     </div>
   )

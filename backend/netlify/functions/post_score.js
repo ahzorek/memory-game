@@ -5,6 +5,12 @@ import { createClient } from '@supabase/supabase-js'
 
   const supabase = createClient(URL, KEY)
 
+    const headers = {
+    "Access-Control-Allow-Origin": "*", 
+    "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
+    "Access-Control-Allow-Methods" : "POST"
+  }
+
 exports.handler = async (event, context) => {
   try {
     const ip_address = event.headers['client-ip']
@@ -22,12 +28,13 @@ exports.handler = async (event, context) => {
       .from('memory-game-scoreboard')
       .insert(newScore)
     
-      return { statusCode: 200 }   
+      return { statusCode: 200, headers }   
   } catch (err) {
     console.error(err)
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed posting data' }),
+      headers
     }
   }
 }
